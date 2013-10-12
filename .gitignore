@@ -2,3 +2,17 @@
 *.pot
 *.pyc
 local_settings.py
+.DS_Store
+*.egg-info
+.duke
+.mr.developer.cfg
+*.pyc
+*.pyo
+*.swp
+.idea/
+.buildpath
+.project
+.settings
+atlassian-ide-plugin.xml
+/{{ project_name }}/static
+*.log
