@@ -14,5 +14,5 @@ local_settings.py
 .project
 .settings
 atlassian-ide-plugin.xml
-/{{ project_name }}/static
+/{{ project_name }}/media
 *.log
