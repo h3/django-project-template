@@ -17,7 +17,7 @@ With django-duke-client
 Edit the `buildout.cfg` file:
 
 
-```conf
+```ini
 [django]
 template=https://github.com/h3/django-project-template/archive/v1.0.0.zip
 ```
