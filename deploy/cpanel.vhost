@@ -1,0 +1,32 @@
+ServerAdmin admin@server.com
+DocumentRoot %(document-root)s
+ServerName %(domain)s
+CustomLog /usr/local/apache/domlogs/%(domain)s combined
+CustomLog /usr/local/apache/domlogs/%(domain)s-bytes_log "%%{%%s}t %%I .\n%%{%%s}t %%O ."
+Options FollowSymLinks
+WSGIPassAuthorization On
+WSGIScriptAlias / %(document-root)s%(domain)s/%(project)s/django.wsgi
+WSGIDaemonProcess %(project)s user=%(user)s group=%(group)s processes=%(wsgi-processes)s threads=%(wsgi-threads)s
+WSGIProcessGroup %(project)s
+Alias /static/ %(document-root)sstatic/
+Alias /media/ %(document-root)smedia/
+<Directory %(document-root)smedia/>
+    Order deny,allow
+    Allow from all
+    AllowOverride None
+</Directory>
+<Directory %(document-root)sstatic/>
+    Order deny,allow
+    Allow from all
+    AllowOverride None
+</Directory>
+# CPanel is really the PHP of webhosting: a huge pile of shit 
+# that miraculously works when you waste enough time to make it work.
+<IfModule mod_security.c>
+    SecRuleEngine Off
+    SecFilterEngine Off
+    SecFilterScanPOST Off
+</IfModule>
+#RewriteEngine On
+#RewriteCond %%{HTTP_HOST} ^www\.%(project)s\.com [NC]
+#RewriteRule (.*) http://%(project)s.com$1 [L,R=301]

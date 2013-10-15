@@ -16,3 +16,4 @@ local_settings.py
 atlassian-ide-plugin.xml
 /{{ project_name }}/media
 *.log
+*~

@@ -1,0 +1,24 @@
+ServerAdmin admin@server.com
+DocumentRoot %(document-root)s
+Options FollowSymLinks
+Alias /static/ %(static-root)s
+Alias /media/ %(media-root)s
+WSGIScriptAlias / %(document-root)s%(package)s/%(project)s/django.wsgi
+WSGIDaemonProcess %(project)s user=%(wsgi-user)s group=%(wsgi-group)s processes=%(wsgi-processes)s threads=%(wsgi-threads)s
+WSGIProcessGroup %(project)s
+<Directory %(document-root)s>
+    Options FollowSymLinks
+</Directory>
+<Directory %(media-root)s>
+    Order deny,allow
+    Allow from all 
+    AllowOverride None
+</Directory>
+<Directory %(static-root)s>
+    Order deny,allow
+    Allow from all 
+    AllowOverride None
+</Directory>
+#RewriteEngine On
+#RewriteCond %%{HTTP_HOST} ^www\.%(project)s\.com [NC]
+#RewriteRule (.*) http://%(project)s.com$1 [L,R=301]
