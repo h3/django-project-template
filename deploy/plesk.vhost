@@ -1,3 +1,4 @@
+# Example Plesk vhost configuration
 ServerAdmin admin@server.com
 DocumentRoot %(document-root)s
 Options FollowSymLinks
