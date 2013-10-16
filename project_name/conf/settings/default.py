@@ -165,11 +165,10 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'grappelli',
     'grappelli.dashboard',
-    'grappellifit',
+   #'grappellifit',
     'django.contrib.admin',
     'south',
-    'easy_thumbnails',
-
+   #'easy_thumbnails',
    #'crispy_forms',
    #'dajaxice',
    #'filebrowser',
