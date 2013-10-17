@@ -8,7 +8,7 @@ Creating a project
 
 ```bash
 $ mkdir myproject.com && cd myproject.com/
-$ django-admin.py startproject --template=https://github.com/h3/django-project-template/archive/v1.0.0.zip --extension=py,md myproject
+$ django-admin.py startproject --template=https://github.com/h3/django-project-template/archive/v1.0.0.zip --extension=wsgi,py,md myproject
 ```
 
 With django-duke-client
