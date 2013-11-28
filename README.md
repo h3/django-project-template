@@ -19,7 +19,7 @@ Edit the `buildout.cfg` file:
 
 ```ini
 [django]
-template=https://github.com/h3/django-project-template/archive/v1.0.0.zip
+template=https://github.com/h3/django-project-template/archive/v1.0.2.zip
 ```
 
 Then:
