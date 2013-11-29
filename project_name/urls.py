@@ -22,6 +22,9 @@ urlpatterns = patterns('',
    #(r'^dajaxice/', include('dajaxice.urls')),
    #url(r'^favicon.ico$', RedirectView.as_view(
    #url='%swebsite/img/favicon.ico' % settings.STATIC_URL)),
+   #url(r'^apple-touch-icon.png$', RedirectView.as_view(
+   #    url='%swebsite/img/apple-touch-icon.png' % settings.STATIC_URL)),
+
 )
 
 urlpatterns += staticfiles_urlpatterns()
