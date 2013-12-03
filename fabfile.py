@@ -8,35 +8,34 @@ from dukeclient.fabric.tasks import *
 LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 
 env.roledefs.update({
-    'alpha': ['user@alpha.myproject.com'],
-    'beta': ['user@beta.myproject.com:2022'],
-    'prod': ['user@myproject.com'],
+    'example': ['user@beta.myproject.com:2022'],
 })
 
 env.site = {
-    'domain':   'myproject.com',
-    'package':  'my-project',
-    'project':  'myproject',
-    'repos':    'git+git@gitserver.com:user/my-project.git',
+    'domain':   'example.com',
+    'package':  'example-project',
+    'project':  'example',
+    'repos':    'git+git@gitserver.com:user/example-project.git',
 }
 
 env.roleconfs = {}
 
 # Example config using UWSGI with Supervisor behind Nginx
 
-env.roleconfs['prod'] = {
-    'hosts': env.roledefs['prod'],
+"""
+env.roleconfs['example'] = {
+    'hosts': env.roledefs['example'],
     'user': 'www-data',
     'group': 'www-data',
-    'document-root':    '/var/www/vhosts/%(domain)s/',
-    'media-root':       '/var/www/vhosts/%(domain)s/media',
-    'static-root':      '/var/www/vhosts/%(domain)s/static',
-    'vhost-conf':       '/etc/nginx/sites-available/%(domain)s',
+    'document-root': '/var/www/vhosts/%(domain)s/',
+    'media-root': '/var/www/vhosts/%(domain)s/media',
+    'static-root': '/var/www/vhosts/%(domain)s/static',
+    'nginx-conf': '/etc/nginx/sites-available/%(domain)s',
     # Unless you are not using dajaxice, you want to use static-copy.
     # https://github.com/jorgebastida/django-dajaxice/issues/66
     'static-copy': True,
     'virtualenv': True,
-    'virtualenv-root': '/var/www/vhosts/%(domain)s/virtualenv/clientsbp',
+    'virtualenv-root': '/var/www/vhosts/%(domain)s/virtualenv/%(project)s',
     'on-deploy': [
         'mkdir -p /var/www/vhosts/%(domain)s/media/',
     ],
@@ -49,9 +48,11 @@ env.roleconfs['prod'] = {
         'supervisorctl reread && supervisorctl restart %(package)s',
     ],
 }
+"""
 
 # Example config for Plesk
 
+"""
 env.roleconfs['beta'] = {
     'hosts': env.roledefs['beta'],
     'user': 'ncXXXXX',
@@ -71,10 +72,12 @@ env.roleconfs['beta'] = {
         'ln -sf /var/www/vhosts/%(domain)s/httpdocs/%(domain)s/%(project)s/media /var/www/vhosts/%(domain)s/httpdocs/media',
     ],
 }
+"""
 
 # Example config for CPanel. But seriously, don't host any django on CPanel. It
 # will ruin your life and leave you with PTSD. Seriously. Don't.
 
+"""
 env.roleconfs['alpha'] = {
     'hosts': env.roledefs['alpha'],
     'user': 'ncXXXXX',
@@ -109,3 +112,4 @@ env.roleconfs['alpha'] = {
     'wsgi-processes': 1,
     'wsgi-threads': 5,
 }
+"""

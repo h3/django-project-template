@@ -1,29 +1,18 @@
-django-project-template
+{{ project_name }}
 =======================
 
-My reusable django project template
 
-Creating a project
+
+Deployment
 ------------------
 
 ```bash
-$ mkdir myproject.com && cd myproject.com/
-$ django-admin.py startproject --template=https://github.com/h3/django-project-template/archive/v1.0.0.zip --extension=wsgi,py,md myproject
+$ fab -R stage deploy
 ```
 
-With django-duke-client
------------------------
-
-Edit the `buildout.cfg` file:
-
+Development
+-----------
 
 ```ini
-[django]
-template=https://github.com/h3/django-project-template/archive/v1.0.2.zip
-```
-
-Then:
-
-```bash
-$ buildout
+$ duke dev
 ```

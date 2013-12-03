@@ -2,6 +2,8 @@ import os
 
 from %(project)s.conf.settings.default import *
 
+ALLOWED_HOSTS = ['beta.%(domain)s']
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -15,7 +17,7 @@ DATABASES = {
 #EMAIL_PORT = 587
 #EMAIL_HOST_USER = 'email@server.com'
 #EMAIL_HOST_PASSWORD = ''
-#EMAIL_USE_TLS = True 
+#EMAIL_USE_TLS = True
 #DEFAULT_FROM_EMAIL = '"Firstname Lastname" <%s>' % EMAIL_HOST_USER
 
 #SENTRY_DSN = ''
